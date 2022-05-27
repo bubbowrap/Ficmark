@@ -10,6 +10,16 @@ const theme = createTheme({
       default: '#191D25',
     },
   },
+  typography: {
+    fontFamily: [
+      'Montserrat',
+      'BlinkMacSystemFont',
+      '"Segoe UI"',
+      'Roboto',
+      'Arial',
+      'sans-serif',
+    ].join(','),
+  },
 });
 
 export default theme;

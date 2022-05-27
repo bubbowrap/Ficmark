@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import StateContext from 'context/state-context';
 import { Routes, Route } from 'react-router-dom';
 import AppLogin from 'pages/AppLogin';
 
 function App() {
-  const isLoggedIn = false;
-
+  const stateCtx = useContext(StateContext);
   return (
     <>
-      {!isLoggedIn ? (
+      {!stateCtx.loggedIn ? (
         <AppLogin />
       ) : (
         <div style={{ display: 'block', background: 'red' }}>LoggedIn</div>
