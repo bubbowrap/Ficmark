@@ -3,6 +3,7 @@ import React, { createContext, useState, useEffect } from 'react';
 const StateContext = createContext({
   loggedIn: false,
   login: () => {},
+  logout: () => {},
 });
 
 export const StateContextProvider = (props: { children: React.ReactNode }) => {
@@ -20,9 +21,18 @@ export const StateContextProvider = (props: { children: React.ReactNode }) => {
     localStorage.setItem('loggedIn', 'true');
   };
 
+  const logoutHandler = () => {
+    setIsLoggedIn(false);
+    localStorage.removeItem('loggedIn');
+  };
+
   return (
     <StateContext.Provider
-      value={{ loggedIn: isLoggedIn, login: loginHandler }}
+      value={{
+        loggedIn: isLoggedIn,
+        login: loginHandler,
+        logout: logoutHandler,
+      }}
     >
       {props.children}
     </StateContext.Provider>

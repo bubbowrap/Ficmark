@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import StateContext from 'context/state-context';
 import theme from 'styles/theme';
-import styled from '@emotion/styled';
+import { styled } from '@mui/material/styles';
 import {
   GlobalStyles,
   Container,
