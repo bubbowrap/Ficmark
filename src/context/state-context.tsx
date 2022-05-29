@@ -15,8 +15,15 @@ export const StateContextProvider = (props: { children: React.ReactNode }) => {
 
   useEffect(() => {
     const loginToken = localStorage.getItem('loggedIn');
-    if (loginToken === 'true') {
+    const drawerStatus = localStorage.getItem('drawerOpen');
+
+    if (loginToken) {
       setIsLoggedIn(true);
+    }
+    if (drawerStatus === 'true') {
+      setIsDrawerOpen(true);
+    } else {
+      setIsDrawerOpen(false);
     }
   }, []);
 
@@ -37,7 +44,7 @@ export const StateContextProvider = (props: { children: React.ReactNode }) => {
 
   const closeDrawerHandler = () => {
     setIsDrawerOpen(false);
-    localStorage.removeItem('drawerOpen');
+    localStorage.setItem('drawerOpen', 'false');
   };
 
   return (

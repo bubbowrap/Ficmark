@@ -20,6 +20,18 @@ const theme = createTheme({
       'Arial',
       'sans-serif',
     ].join(','),
+    h1: {
+      fontSize: '48px',
+      fontWeight: '700',
+    },
+    h2: {
+      fontSize: '32px',
+      fontWeight: '700',
+    },
+    h3: {
+      fontSize: '22px',
+      fontWeight: '700',
+    },
   },
 });
 

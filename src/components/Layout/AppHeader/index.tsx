@@ -14,6 +14,7 @@ import {
   Menu,
 } from '@mui/material';
 
+import ArrowLeftIcon from '@mui/icons-material/ChevronLeft';
 import MenuIcon from '@mui/icons-material/Menu';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
@@ -48,16 +49,29 @@ const AppHeader = () => {
       elevation={0}
     >
       <Toolbar>
-        <IconButton
-          size='large'
-          edge='start'
-          color='inherit'
-          aria-label='open drawer'
-          sx={{ mr: { xs: 1, md: 2 } }}
-          onClick={() => stateCtx.openDrawer()}
-        >
-          <MenuIcon />
-        </IconButton>
+        {stateCtx.drawerOpen ? (
+          <IconButton
+            size='large'
+            edge='start'
+            color='inherit'
+            aria-label='close drawer'
+            sx={{ mr: { xs: 1, md: 2 } }}
+            onClick={() => stateCtx.closeDrawer()}
+          >
+            <ArrowLeftIcon />
+          </IconButton>
+        ) : (
+          <IconButton
+            size='large'
+            edge='start'
+            color='inherit'
+            aria-label='open drawer'
+            sx={{ mr: { xs: 1, md: 2 } }}
+            onClick={() => stateCtx.openDrawer()}
+          >
+            <MenuIcon />
+          </IconButton>
+        )}
         <LogoContainer>
           <img src={Logo} alt='FicMark Logo' />
           <Typography
