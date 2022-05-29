@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import StateContext from 'context/state-context';
-
 import { styled } from '@mui/material/styles';
 
 import {
@@ -39,10 +38,15 @@ const IconButtonNoHover = styled(IconButton)`
   }
 `;
 
-const Header = () => {
+const AppHeader = () => {
   const stateCtx = useContext(StateContext);
   return (
-    <AppBar position='static' sx={{ padding: '4px 0' }} enableColorOnDark>
+    <AppBar
+      position='relative'
+      sx={{ padding: '4px 0', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+      enableColorOnDark
+      elevation={0}
+    >
       <Toolbar>
         <IconButton
           size='large'
@@ -50,6 +54,7 @@ const Header = () => {
           color='inherit'
           aria-label='open drawer'
           sx={{ mr: { xs: 1, md: 2 } }}
+          onClick={() => stateCtx.openDrawer()}
         >
           <MenuIcon />
         </IconButton>
@@ -127,4 +132,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default AppHeader;
