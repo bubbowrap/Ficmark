@@ -1,5 +1,5 @@
 import React, { ReactEventHandler } from 'react';
-import { Alert, AlertTitle } from '@mui/material';
+import { Alert } from '@mui/material';
 import { WelcomeIcon } from 'components/SVGIcons';
 
 interface AnnoucementProps {
@@ -7,7 +7,7 @@ interface AnnoucementProps {
   children?: React.ReactNode;
 }
 
-const AnnouncementBar: React.FC<AnnoucementProps> = ({ title, children }) => {
+const AnnouncementBar: React.FC<AnnoucementProps> = ({ children }) => {
   return (
     <Alert
       variant='filled'
@@ -16,14 +16,15 @@ const AnnouncementBar: React.FC<AnnoucementProps> = ({ title, children }) => {
       sx={{
         background: 'linear-gradient(90deg, #2839BD 0.08%, #4D29C1 100%);',
         fontSize: '16px',
+        borderRadius: '10px',
+        '& .MuiAlert-message': {
+          flex: 1,
+        },
       }}
       iconMapping={{
         info: <WelcomeIcon />,
       }}
     >
-      <AlertTitle sx={{ fontSize: '26px', fontWeight: '600', mb: 0 }}>
-        {title}
-      </AlertTitle>
       {children}
     </Alert>
   );

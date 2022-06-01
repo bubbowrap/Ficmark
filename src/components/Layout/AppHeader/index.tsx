@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import StateContext from 'context/state-context';
+import theme from 'styles/theme';
 import { styled } from '@mui/material/styles';
 
 import {
@@ -10,15 +11,16 @@ import {
   Typography,
   Badge,
   Avatar,
+  Button,
   MenuItem,
   Menu,
 } from '@mui/material';
 
 import ArrowLeftIcon from '@mui/icons-material/ChevronLeft';
 import MenuIcon from '@mui/icons-material/Menu';
-import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
+import PlusIcon from '@mui/icons-material/Add';
 
 import Logo from 'assets/logo-ficmark.svg';
 import UserImage from 'assets/user-image.jpg';
@@ -36,6 +38,22 @@ const LogoContainer = styled(Box)`
 const IconButtonNoHover = styled(IconButton)`
   &:hover {
     background: none;
+  }
+`;
+
+const WhiteButton = styled(Button)`
+  border-radius: 36px;
+  background: white;
+  padding: 6px 18px;
+  width: 100%;
+  font-size: 16px;
+  font-weight: 600;
+  color: ${theme.palette.primary.main};
+  text-transform: inherit;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.85);
   }
 `;
 
@@ -97,16 +115,8 @@ const AppHeader = () => {
           />
         </Search> */}
         <Box sx={{ flexGrow: 1 }} />
-        <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-          <IconButtonNoHover
-            size='large'
-            aria-label='show 4 new mails'
-            color='inherit'
-          >
-            <Badge badgeContent={4} color='error'>
-              <MailIcon />
-            </Badge>
-          </IconButtonNoHover>
+        <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center' }}>
+          <WhiteButton startIcon={<PlusIcon />}>New FicMark</WhiteButton>
           <IconButtonNoHover
             size='large'
             aria-label='show 17 new notifications'

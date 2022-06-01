@@ -32,7 +32,7 @@ const AppDrawer = () => {
       anchor='left'
       open={stateCtx.drawerOpen}
     >
-      <Toolbar />
+      <Toolbar style={{ margin: '4px 0' }} />
 
       {/* <DrawerHeader>
         <IconButton onClick={handleDrawerClose}>
@@ -45,13 +45,15 @@ const AppDrawer = () => {
       </DrawerHeader> 
       <Divider />*/}
       <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
+        {['Dashboard', 'Recently Updated', 'About FicMark'].map(
+          (text, index) => (
+            <ListItem key={text} disablePadding>
+              <ListItemButton>
+                <ListItemText primary={text} />
+              </ListItemButton>
+            </ListItem>
+          )
+        )}
       </List>
     </Drawer>
   );
